@@ -8,9 +8,10 @@
         <v-col
           cols="12"
           md="8"
+          lg="6"
         >
-          <v-card>
-            <v-row class="pa-4">
+          <v-card :elevation="24">
+            <v-row class="pa-6">
               <v-col
                 cols="12"
                 md="5"
@@ -67,10 +68,10 @@
                   >
                     <v-btn
                       color="error"
-                      class="mr-4"
                       @click="reset"
                       :loading="loading"
                     >
+                      <v-icon left>mdi-delete</v-icon>
                       ล้างข้อมูล
                     </v-btn>
 
@@ -79,6 +80,7 @@
                       @click="submit"
                       :loading="loading"
                     >
+                      <v-icon left>mdi-shopping</v-icon>
                       สั่งจองเลย
                     </v-btn>
                   </v-row>
@@ -151,17 +153,13 @@ export default {
         }
       }
     },
-    async postData(url = '', data = {}) {
+    postData(url, data) {
       return fetch(url, {
         method: 'POST',
         mode: 'no-cors',
-        cache: 'no-cache',
-        credentials: 'same-origin',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
-        redirect: 'follow',
-        referrer: 'no-referrer',
         body: qs.stringify(data),
       });
     },
