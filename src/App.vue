@@ -132,7 +132,6 @@ export default {
     async submit() {
       if (this.$refs.form.validate()) {
         const url =          'https://docs.google.com/forms/d/e/1FAIpQLSeRSWxqaW7BvoF47cl_muvGTvw39sm7Qt6DNYL0CkxQNVR0Ww/formResponse';
-
         const body = {
           'entry.1819278497': this.name,
           'entry.1633641327': this.phone,
